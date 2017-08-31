@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "753527411821",
+    "firebase_url": "https://fir-storage-82d0f.firebaseio.com",
+    "project_id": "fir-storage-82d0f",
+    "storage_bucket": "fir-storage-82d0f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753527411821:android:4d6ba16b4358868f",
+        "android_client_info": {
+          "package_name": "com.delaroystudios.firebasestorage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753527411821-9u5t101r9p8jit716us278prujaq6l0v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.delaroystudios.firebasestorage",
+            "certificate_hash": "02400e13a85e876088e2abfd02909d56ee364c05"
+          }
+        },
+        {
+          "client_id": "753527411821-na4bheg9ljscltlkpc40554dc0tk9bvk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP10zNSHxhb5oW-2I3zdke0K1C1s_dFq8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753527411821-na4bheg9ljscltlkpc40554dc0tk9bvk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753527411821:android:39c38b6024b48d74",
+        "android_client_info": {
+          "package_name": "com.delaroystudios.emailpasswordauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753527411821-s228cdsq1blbb40fln6bc658u07aeeqq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.delaroystudios.emailpasswordauth",
+            "certificate_hash": "f191ef43cafa7b031d74c507aae852b1c42873b5"
+          }
+        },
+        {
+          "client_id": "753527411821-na4bheg9ljscltlkpc40554dc0tk9bvk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP10zNSHxhb5oW-2I3zdke0K1C1s_dFq8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753527411821-na4bheg9ljscltlkpc40554dc0tk9bvk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
