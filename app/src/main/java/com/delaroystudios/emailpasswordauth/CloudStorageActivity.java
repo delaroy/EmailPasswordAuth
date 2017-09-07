@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RealtimeDBActivity extends AppCompatActivity {
+public class CloudStorageActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
     private static final int REQUEST_CODE = 101;
@@ -21,7 +21,7 @@ public class RealtimeDBActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_real_time_db);
+        setContentView(R.layout.activity_cloud_storage);
 
         auth = FirebaseAuth.getInstance();
 
@@ -41,7 +41,6 @@ public class RealtimeDBActivity extends AppCompatActivity {
         providers.add(
                 new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build());
 
-
         startActivityForResult(
                 AuthUI.getInstance().createSignInIntentBuilder()
                         .setAvailableProviders(providers)
@@ -57,6 +56,7 @@ public class RealtimeDBActivity extends AppCompatActivity {
         IdpResponse response = IdpResponse.fromResultIntent(data);
 
         if (requestCode == REQUEST_CODE) {
+
             if (resultCode == ResultCodes.OK) {
                 startActivity(new Intent(this, SignedInActivity.class));
                 return;
@@ -79,4 +79,3 @@ public class RealtimeDBActivity extends AppCompatActivity {
         }
     }
 }
-
