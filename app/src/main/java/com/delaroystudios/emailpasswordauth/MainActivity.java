@@ -1,5 +1,6 @@
 package com.delaroystudios.emailpasswordauth;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.hbb20.CountryCodePicker;
 
 import java.util.concurrent.TimeUnit;
 
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private Button resendButton;
     private Button signoutButton;
     private TextView statusText;
+    String number;
 
     private String phoneVerificationId;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private PhoneAuthProvider.ForceResendingToken resendToken;
 
     private FirebaseAuth fbAuth;
+    CountryCodePicker ccp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
         signoutButton = (Button) findViewById(R.id.signoutButton);
         statusText = (TextView) findViewById(R.id.statusText);
 
+        ccp = (CountryCodePicker) findViewById(R.id.ccp);
+        ccp.registerCarrierNumberEditText(phoneText);
+
         verifyButton.setEnabled(false);
         resendButton.setEnabled(false);
         signoutButton.setEnabled(false);
@@ -66,12 +73,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendCode(View view) {
 
-        String phoneNumber = phoneText.getText().toString();
+        number = ccp.getFullNumberWithPlus();
 
         setUpVerificatonCallbacks();
 
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phoneNumber,        // Phone number to verify
+                number,        // Phone number to verify
                 60,                 // Timeout duration
                 TimeUnit.SECONDS,   // Unit of timeout
                 this,               // Activity (for callback binding)
@@ -143,6 +150,12 @@ public class MainActivity extends AppCompatActivity {
                             resendButton.setEnabled(false);
                             verifyButton.setEnabled(false);
                             FirebaseUser user = task.getResult().getUser();
+                            String phoneNumber = user.getPhoneNumber();
+
+                            Intent intent = new Intent(MainActivity.this, MessagingActivity.class);
+                            intent.putExtra("phone", phoneNumber);
+                            startActivity(intent);
+                            finish();
 
                         } else {
                             if (task.getException() instanceof
@@ -156,12 +169,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void resendCode(View view) {
 
-        String phoneNumber = phoneText.getText().toString();
+        number = ccp.getFullNumberWithPlus();
 
         setUpVerificatonCallbacks();
 
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phoneNumber,
+                number,
                 60,
                 TimeUnit.SECONDS,
                 this,
